@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 8vh;
+    background-color: #359d9e;
+    justify-content: flex-end;
+
+}
+
+.menuItem {
+    margin: 0.5em 2em;
+    transition: all 0.2s;
+    color: white;
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    border-bottom: 3px solid #7ae495
+}

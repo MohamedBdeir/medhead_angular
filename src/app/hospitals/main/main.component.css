@@ -1,0 +1,35 @@
+.container {
+    max-width: 80vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.results {
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+
+}
+
+
+
+tr {
+    transition: all 0.2s;
+    padding: 4em;
+
+}
+
+
+tr+tr {
+    border-top: 1px solid teal;
+}
+
+tr:hover {
+    background-color: #cff4d2;
+    cursor: pointer;
+}
