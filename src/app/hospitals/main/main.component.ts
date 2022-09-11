@@ -31,7 +31,7 @@ export class MainComponent implements OnInit {
           this.hospitals = response.data;
         }
         else {
-          this.errorHandler.errorMessage(response.exceptionMessage);
+          ErrorHandler.errorMessage(response.exceptionMessage);
         }
       })
   }

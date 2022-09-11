@@ -55,11 +55,6 @@ export class DetailsComponent implements OnInit {
     })
 
 
-
-
-
-
-
   }
 
 
@@ -67,11 +62,6 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
 
     this.initmap();
-
-
-
-
-
 
   }
 
@@ -84,7 +74,7 @@ export class DetailsComponent implements OnInit {
         }
 
         else {
-          this.errorHanlder.errorMessage(response.exceptionMessage);
+          ErrorHandler.errorMessage(response.exceptionMessage);
         }
       })
   }

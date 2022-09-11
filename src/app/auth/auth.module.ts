@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 const routes: Routes = [
@@ -25,9 +25,10 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatCheckboxModule,
     RouterModule.forChild(routes)
 
   ],
-  providers:[FormBuilder]
+  providers: [FormBuilder]
 })
 export class AuthModule { }

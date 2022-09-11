@@ -12,6 +12,12 @@
                     <mat-label>Mot de passe</mat-label>
                     <input type="password" matInput placeholder="Mot de passe" formControlName="password" />
                 </mat-form-field>
+                <mat-checkbox class="example-margin"
+                  [checked]="false"
+
+                  (change)="rememberMe($event.checked)">
+                Rester connecté
+    </mat-checkbox>
                 <button mat-button class="primary" (click)="login()">Se connecter</button>
 
             </form>

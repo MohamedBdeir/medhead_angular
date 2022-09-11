@@ -5,7 +5,7 @@ export class ErrorHandler {
 
     }
 
-    errorMessage(message: string) {
+  static   errorMessage(message: string) {
         alert(message)
     }
 
