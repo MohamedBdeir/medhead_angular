@@ -17,6 +17,6 @@ export class AuthService {
     return this.httpClient.post<AuthenticateResponse>(url + 'authenticate', {
       username: username,
       password: password
-    })
+    },{ withCredentials: true })
   }
 }

@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     MatInputModule,
     CommonModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     MatButtonModule,
     MatCheckboxModule,
     RouterModule.forChild(routes)

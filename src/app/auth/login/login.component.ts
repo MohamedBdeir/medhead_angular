@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLock, faUserPlus, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/services/auth.service';
-import { users } from 'src/data';
-
+import { JWTHandlerService } from 'src/app/services/jwthandler.service';
+import { ErrorHandler } from 'src/app/utils/errorHandling';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,16 +13,45 @@ import { users } from 'src/data';
 })
 export class LoginComponent implements OnInit {
 
+  faUser = faUser
+  faUserPlus = faUserPlus
+  faLock = faLock
+  faBuilding = faBuilding
+
   loginForm: FormGroup;
   isRememberMeChecked: boolean = false;
+  loginError = false;
+  loginShowing = true;
+
+  signInForm: FormGroup;
 
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService,
+    private jwtHandler: JWTHandlerService) {
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
 
+    })
+
+    this.signInForm = this.formBuilder.group({
+      orgName: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+
+    })
+
+    this.loginForm.get("username").valueChanges.subscribe(response => {
+      if (response.lenght == 0) {
+        this.loginError = false;
+      }
+    })
+
+    this.loginForm.get("password").valueChanges.subscribe(response => {
+      if (response.lenght == 0) {
+        this.loginError = false;
+      }
     })
 
 
@@ -41,7 +70,22 @@ export class LoginComponent implements OnInit {
 
     this.authService.authenticate(username, password)
       .subscribe(response => {
-        console.log(response);
+
+        if (response.exceptionMessage == null) {
+          this.jwtHandler.setRememberMe(this.isRememberMeChecked);
+          this.jwtHandler.saveJwt(response.token);
+
+
+
+          this.router.navigate(['dashboard'])
+
+        }
+        else {
+          ErrorHandler.errorMessage(response.exceptionMessage)
+          this.loginError = true;
+        }
+      }, error => {
+        alert(error.statusText)
       })
 
 
@@ -51,5 +95,11 @@ export class LoginComponent implements OnInit {
 
     this.isRememberMeChecked = checked;
   }
+
+  switchForms() {
+    this.loginShowing = !this.loginShowing;
+  }
+
+  signIn() { }
 
 }

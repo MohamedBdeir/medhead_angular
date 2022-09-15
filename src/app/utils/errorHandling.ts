@@ -5,8 +5,15 @@ export class ErrorHandler {
 
     }
 
-  static   errorMessage(message: string) {
-        alert(message)
+    static errorMessage(message: string) {
+
+        if (message.toLowerCase().includes("jwt expired")) {
+            alert("La session a expiré")
+        }
+        else {
+            alert(message);
+        }
+
     }
 
 }

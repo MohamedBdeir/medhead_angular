@@ -68,7 +68,6 @@ export class DetailsComponent implements OnInit {
   getHopitalById(id: number) {
     this.hopitalService.getHopitalById(id)
       .subscribe(response => {
-        console.log(response)
         if (response.exceptionMessage == null) {
           this.hopital = response.data;
         }

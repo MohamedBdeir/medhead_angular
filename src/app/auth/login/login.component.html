@@ -1,31 +1,108 @@
 <div class="container">
-    <div class="left">
-        <img src="https://i.postimg.cc/sDWrbXdC/logo.png" alt="medhead logo" id="logo">
-        <div class="loginFormContainer">
-            <h2>Connectez-vous à votre compte</h2>
-            <form [formGroup]="loginForm" class="loginForm">
-                <mat-form-field appearance="fill">
-                    <mat-label>Nom d'utilisateur</mat-label>
-                    <input type="text" placeholder="Nom d'utlisateur" matInput formControlName="username">
-                </mat-form-field>
-                <mat-form-field appearance="fill">
-                    <mat-label>Mot de passe</mat-label>
-                    <input type="password" matInput placeholder="Mot de passe" formControlName="password" />
-                </mat-form-field>
-                <mat-checkbox class="example-margin"
-                  [checked]="false"
+    <!-- <div class="left">
 
-                  (change)="rememberMe($event.checked)">
-                Rester connecté
-    </mat-checkbox>
-                <button mat-button class="primary" (click)="login()">Se connecter</button>
-
-            </form>
-        </div>
+        <img class="rightImage" src="https://i.postimg.cc/sDWrbXdC/logo.png">
 
     </div>
 
     <div class="right">
-        <img src="https://i.postimg.cc/Wp005GWG/login-Screen-Icon.png">
+        <div class="loginFormContainer">
+            <form [formGroup]="loginForm" class="loginForm">
+                <input type="text" placeholder="Nom d'utlisateur" formControlName="username">
+                <input type="password" placeholder="Mot de passe" formControlName="password" />
+                <mat-checkbox class="example-margin" [checked]="false" (change)="rememberMe($event.checked)">
+                    Rester connecté
+                </mat-checkbox>
+                <button mat-button class="primary" (click)="login()">Se connecter</button>
+
+            </form>
+        </div>
+    </div>
+    -->
+
+    <div class="left">
+        <div class="leftContent">
+            <img src="https://i.postimg.cc/5tQzQrgk/logo.png" id="logo" alt="">
+            <div class="quickAccess">Accéder aux recommandations</div>
+        </div>
+
+    </div>
+    <div class="right">
+
+        <div class="loginFormContainer" [ngClass]="loginShowing? 'loginShowing' : 'signInShowing'">
+
+            <div class="iconContainer">
+                <fa-icon [icon]="faUser" class="icon" id="loginIcon">
+                </fa-icon>
+            </div>
+
+            <form class="loginForm" [formGroup]="loginForm">
+                <span class="inputLine">
+                    <fa-icon [icon]="faUser" class="icon"></fa-icon>
+                    <input type="text" placeholder="Nom d'utilisateur" formControlName="username" />
+                </span>
+
+                <span class="inputLine">
+                    <fa-icon [icon]="faLock" class="icon"></fa-icon>
+                    <input type="password" placeholder="Mot de passe" formControlName="password" />
+                </span>
+                <div class="rememberme">
+                    <mat-checkbox class="example-margin" [checked]="false" (change)="rememberMe($event.checked)">
+                        Rester connecté
+                    </mat-checkbox>
+                </div>
+
+                <div class="loginButton">
+                    <button mat-button class="primary" [disabled]="loginForm.invalid" (click)="login()">Se
+                        connecter</button>
+                </div>
+
+
+            </form>
+
+            <div class="switch" (click)="switchForms()">
+                Vous n'avez pas de compte? Créez en un
+            </div>
+        </div>
+
+        <div class="signInFormContainer" [ngClass]="!loginShowing? 'signInShowing' : 'loginShowing'">
+
+            <div class="iconContainer">
+                <fa-icon [icon]="faUserPlus" class="icon" id="loginIcon">
+                </fa-icon>
+            </div>
+
+
+            <form class="loginForm" [formGroup]="signInForm">
+                <span class="inputLine">
+                    <fa-icon [icon]="faBuilding" class="icon"></fa-icon>
+                    <input type="text" placeholder="Nom de votre organisation" formControlName="orgName" />
+                </span>
+
+                <span class="inputLine">
+                    <fa-icon [icon]="faUser" class="icon"></fa-icon>
+                    <input type="text" placeholder="Nom d'utilisateur" formControlName="username" />
+                </span>
+
+                <span class="inputLine">
+                    <fa-icon [icon]="faLock" class="icon"></fa-icon>
+                    <input type="password" placeholder="Mot de passe" formControlName="password" />
+                </span>
+
+
+                <div class="loginButton">
+                    <button mat-button class="primary" [disabled]="loginForm.invalid" (click)="signIn()">Créer le
+                        compte</button>
+                </div>
+
+
+            </form>
+
+            <div class="switch" (click)="switchForms()">
+                Vous disposez d'un compte ? Connectez-vous
+            </div>
+
+        </div>
+
     </div>
 </div>
