@@ -1,10 +1,58 @@
 <app-menu></app-menu>
 <div class="container">
-    <div class="left">
-        <div class="tile" (click)="navigateToHospitals()">Hôpitaux</div>
-        <div class="tile">Spécialités</div>
-        <div class="tile">Utilisateurs</div>
+
+    <div class="tile" (click)="navigateToHospitals()">
+        <div class="left">
+            <div class="illustration">
+                <img src="https://i.postimg.cc/XNcBh7KW/medical.png" class="illustration-img" alt="">
+
+            </div>
+        </div>
+        <div class="right">
+            <h1 class="tileHeader">Les hopitaux</h1>
+            <div class="content">
+                Consulter et gérer la liste des hôpitaux enregistrés
+                <div class="notification" *ngIf="invalidCount > 0">
+                    Nombre de demandes en attente de validtion: {{invalidCount}}
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div class="tile" (click)="navigateToSpecialites()">
+        <div class="left">
+            <div class="illustration">
+                <img src="https://i.postimg.cc/B6FdY1DT/specialite.png" class="illustration-img" alt="">
+
+            </div>
+        </div>
+        <div class="right">
+            <h1 class="tileHeader">Les spécialités</h1>
+            <div class="content">
+                Consulter et gérer la liste des spécialitées disponibles
+                <div class="notification">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tile">
+        <div class="left">
+            <div class="illustration">
+                <img src="https://i.postimg.cc/5NftZ8gN/comptes.png" class="illustration-img" alt="">
+
+            </div>
+        </div>
+        <div class="right">
+            <h1 class="tileHeader">Les comptes utilisateurs</h1>
+            <div class="content">
+                Gérer les comptes utilisateurs et les droits d'accèes
+                <div class="notification" *ngIf="invalidCount > 0">
+
+                    Nombre de comptes en attente de validtion: {{invalidCount}}
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

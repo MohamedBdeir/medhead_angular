@@ -1,0 +1,52 @@
+<app-hopital-menu></app-hopital-menu>
+<div class="container">
+
+    <div class="searchFormContainer">
+        <h3>
+            <fa-icon [icon]="faSearch" class="icon"></fa-icon>
+            Rechechez votre institution
+        </h3>
+        <form [formGroup]="searchHopitalForm" class="searchForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Ville</mat-label>
+                <input type="text" placeholder="Ville" matInput formControlName="ville" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Recherche</mat-label>
+                <input type="text" placeholder="recherche" matInput formControlName="searchName" />
+            </mat-form-field>
+
+            <button class="primary rechercher" mat-button (click)="rechercher()">Rechercher</button>
+        </form>
+    </div>
+
+    <div class="body" *ngIf="canShowMap">
+        <iframe class="map" [src]="urlSafe" frameborder="0"></iframe>
+        <div class="searchResults">
+            <h2>Résultats</h2>
+
+            <div class="addressLine" *ngFor="let adr of addressesList">
+                {{adr.display_name}}
+                <div class="typeData">
+                    <div class="key">
+                        Type:
+                    </div>
+                    <div class="value">
+                        {{adr.type}}
+                    </div>
+                </div>
+                <button class="primary selectionner" mat-button (click)="setAddresse(adr)">Définir comme
+                    adresse</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hint" *ngIf="!canShowMap">
+        Saisissez un terme de recheche pour afficher les adresses
+    </div>
+
+
+
+</div>

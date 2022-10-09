@@ -1,0 +1,51 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+    margin: 1em;
+
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBedFormContainer {
+    border: 1px solid #359d9e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.3em;
+    padding: 1em;
+}
+
+.imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBedForm {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 60%;
+}
+
+.getListFormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.getBedForm {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 1em;
+}

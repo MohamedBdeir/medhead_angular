@@ -9,10 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptorService } from './services/jwt-interceptor.service';
 import { ResponseInterceptorService } from './services/response-interceptor.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,12 +25,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
+    MatAutocompleteModule, 
     FontAwesomeModule
 
 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true, },
   { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptorService, multi: true, }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

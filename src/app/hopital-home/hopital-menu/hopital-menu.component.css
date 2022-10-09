@@ -1,0 +1,35 @@
+.container {
+    display: grid;
+    grid-template-columns: 4fr 12fr;
+    height: 8vh;
+    background: rgb(66, 77, 107);
+    background: linear-gradient(180deg, rgba(66, 77, 107, 1) 0%, rgba(29, 44, 79, 1) 100%);
+    justify-items: end;
+
+}
+
+.connected {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuItem {
+    margin: 0.5em 2em;
+    transition: all 0.2s;
+    color: white;
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    border-bottom: 3px solid #7ae495
+}

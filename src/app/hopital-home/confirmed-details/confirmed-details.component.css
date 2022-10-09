@@ -1,0 +1,20 @@
+.container {
+    max-width: 80vw;
+    margin: auto;
+}
+
+
+.addresse
+{
+    background-color: #cff4d2;
+    border: 1px solid #359d9e;
+    border-radius: 0.3em;
+    padding: 2em;
+    margin: 1em;
+}
+
+.carte
+{
+    width: 100%;
+    height: 50vh;
+}

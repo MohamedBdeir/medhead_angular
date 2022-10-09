@@ -1,4 +1,15 @@
 {
     "loginScreenIcon.png":"https://i.postimg.cc/Wp005GWG/login-Screen-Icon.png",
-    "logo":"https://i.postimg.cc/5tQzQrgk/logo.png"
+    "logo":"https://i.postimg.cc/5tQzQrgk/logo.png",
+    "hopital-lit":"https://i.postimg.cc/DyMmGWd2/hopital-lit.jpg",
+    "medical":"https://i.postimg.cc/XNcBh7KW/medical.png",
+    "specialite":"https://i.postimg.cc/B6FdY1DT/specialite.png",
+    "comptes":"https://i.postimg.cc/5NftZ8gN/comptes.png",
+    "addSpecialite":"https://i.postimg.cc/hGgqBhs9/ajouter-Specialite.png",
+    "groupe":"https://i.postimg.cc/xThFWxhk/groupe.png",
+    "noData":"https://i.postimg.cc/9QC0rc8Q/noData.png",
+    "ajouterSpecToHopital":"https://i.postimg.cc/d1nf0zH1/ajouter-Spec-To-Hopital.png",
+    "batiment":"https://i.postimg.cc/d1w2RN1d/batiment.png",
+    "patient":"https://i.postimg.cc/4xTkHV7V/patients.png",
+    "addBed":"https://i.postimg.cc/kGDfktMX/addBed.png"
 }

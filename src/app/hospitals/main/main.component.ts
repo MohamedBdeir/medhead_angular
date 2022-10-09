@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Hopital } from 'src/app/models/Hopital';
 import { HospitalsService } from 'src/app/services/hospitals.service';
 import { ErrorHandler } from 'src/app/utils/errorHandling';
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-main',
@@ -13,10 +15,13 @@ export class MainComponent implements OnInit {
 
   hospitals: Array<Hopital> = []
   errorHandler: ErrorHandler = new ErrorHandler();
+  faWarning = faWarning
+  invalidAccounts: number = 0;
 
   constructor(private hospitalService: HospitalsService, private router: Router) {
 
     this.getAllHopital();
+    this.countInvalidAccounts();
 
   }
 
@@ -40,6 +45,17 @@ export class MainComponent implements OnInit {
 
     this.router.navigate(['hospitals', id.toString()])
 
+  }
+
+  countInvalidAccounts() {
+    this.hospitalService.countInvalidAccounts().subscribe(response => {
+      this.invalidAccounts = response.invalidCount
+    })
+  }
+
+
+  navigateToAccountValidation() {
+    this.router.navigate(['valider'])
   }
 
 }

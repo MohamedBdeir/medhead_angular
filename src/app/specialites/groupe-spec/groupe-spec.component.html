@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="newGroupFormContainer">
+        <h2>Ajouter un nouveau groupe</h2>
+        <form [formGroup]="newGroupForm" class="newGroupForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Nouveau groupe</mat-label>
+                <input matInput type="text" placeholder="Nom" formControlName="name" />
+            </mat-form-field>
+            <button mat-button class="ajouter primary" 
+            (click)="ajouter()" [disabled]="newGroupForm.invalid">Ajouter</button>
+
+
+        </form>
+    </div>
+</div>

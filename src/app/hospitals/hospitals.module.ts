@@ -4,6 +4,7 @@ import { MainComponent } from './main/main.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { SharedModule } from '../shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    FontAwesomeModule,
     SharedModule,
     RouterModule.forChild(routes)
   ]

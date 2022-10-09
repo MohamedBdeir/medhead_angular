@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+img {
+    width: 15vw;
+}
+
+.top {
+    display: flex;
+
+}
+
+.bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1em;
+}
+
+.groupLine {
+    padding: 0.5em;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.groupLine:hover {
+    background-color: #cff4d2;
+    border-radius: 0.3em;
+    padding: 0.5em;
+}
+
+
+.selectedGroup {
+    background-color: #359d9e;
+    color: white;
+}
+
+.selectedGroup:hover {
+    background-color: #359d9e;
+}
+
+.listeSpecialites {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 4em;
+}
+
+.supprimer
+{
+    border: 1px solid rgb(241, 113, 113);
+    
+}

@@ -6,7 +6,7 @@ import { MatFormFieldModule, } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -28,6 +28,7 @@ const routes: Routes = [
     FontAwesomeModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild(routes)
 
   ],

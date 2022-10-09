@@ -1,5 +1,10 @@
 <app-menu></app-menu>
 <div class="container">
+
+    <div class="notification" *ngIf="invalidAccounts> 0" (click)="navigateToAccountValidation()">
+        <fa-icon [icon]="faWarning"></fa-icon> {{invalidAccounts}} compte(s) en attente de validation
+    </div>
+
     <table class="results">
         <tr *ngFor="let h of hospitals" (click)="navigateToDetails(h.id)">
             <td>{{h.id}}</td>

@@ -20,10 +20,10 @@
     </div>
     -->
 
-    <div class="left">
+    <div class="left" (click)="urgences()">
         <div class="leftContent">
             <img src="https://i.postimg.cc/5tQzQrgk/logo.png" id="logo" alt="">
-            <div class="quickAccess">Accéder aux recommandations</div>
+            <h1 class="quickAccess">URGENCES</h1>
         </div>
 
     </div>
@@ -52,9 +52,13 @@
                     </mat-checkbox>
                 </div>
 
-                <div class="loginButton">
+                <div class="loginButton" *ngIf="!isLoading">
                     <button mat-button class="primary" [disabled]="loginForm.invalid" (click)="login()">Se
                         connecter</button>
+                </div>
+
+                <div class="loading" *ngIf="isLoading">
+                    <mat-spinner diameter="50"></mat-spinner>
                 </div>
 
 
@@ -90,9 +94,14 @@
                 </span>
 
 
-                <div class="loginButton">
-                    <button mat-button class="primary" [disabled]="loginForm.invalid" (click)="signIn()">Créer le
+                <div class="loginButton" *ngIf="!isLoading">
+                    <button mat-button class="primary" [disabled]="signInForm.invalid" (click)="signIn()">Créer le
                         compte</button>
+                </div>
+
+
+                <div class="loading">
+                    <mat-spinner diameter="50" *ngIf="isLoading"></mat-spinner>
                 </div>
 
 

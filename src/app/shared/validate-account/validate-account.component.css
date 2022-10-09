@@ -1,0 +1,67 @@
+.container {
+
+    max-width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 1em;
+}
+
+.invalidUserLine+.invalidUserLine {
+    border-top: 1px solid #215273;
+}
+
+.invalidUserLine {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0.5em;
+}
+
+.invalidUserLine>* {
+    margin: 0 1em;
+}
+
+
+button {
+    transition: all 0.2s;
+}
+
+.valider {
+    border: 1px solid #359d9e;
+    color: #359d9e;
+
+}
+
+.valider:hover {
+    background-color: #359d9e;
+    color: white;
+}
+
+.rejetter {
+    border: 1px solid rgb(241, 113, 113);
+    background-color: white;
+    color: red;
+}
+
+.rejetter:hover {
+    background-color: rgb(241, 113, 113);
+    color: white;
+}
+
+
+
+img {
+    width: 20vw;
+}
+
+.noData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}

@@ -4,8 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faUser, faLock, faUserPlus, faBuilding } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/services/auth.service';
+import { HospitalsService } from 'src/app/services/hospitals.service';
 import { JWTHandlerService } from 'src/app/services/jwthandler.service';
 import { ErrorHandler } from 'src/app/utils/errorHandling';
+import { SucessHandler } from 'src/app/utils/sucessHandling';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
   faUserPlus = faUserPlus
   faLock = faLock
   faBuilding = faBuilding
-
+  isLoading: boolean = false;
   loginForm: FormGroup;
   isRememberMeChecked: boolean = false;
   loginError = false;
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService,
-    private jwtHandler: JWTHandlerService) {
+    private jwtHandler: JWTHandlerService, private hopitalService: HospitalsService) {
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -64,6 +66,7 @@ export class LoginComponent implements OnInit {
 
   login() {
 
+    this.isLoading = true;
 
     let username = this.loginForm.get("username")?.value;
     let password = this.loginForm.get("password")?.value
@@ -76,16 +79,23 @@ export class LoginComponent implements OnInit {
           this.jwtHandler.saveJwt(response.token);
 
 
-
-          this.router.navigate(['dashboard'])
+          let userRole = this.jwtHandler.getAccountType();
+          if (userRole === 'ADMIN')
+            this.router.navigate(['dashboard'])
+          else {
+            this.router.navigate(['HMenu'])
+          }
 
         }
         else {
           ErrorHandler.errorMessage(response.exceptionMessage)
           this.loginError = true;
         }
+
+        this.isLoading = false;
       }, error => {
-        alert(error.statusText)
+        ErrorHandler.errorMessage(error.statusText)
+        this.isLoading = false;
       })
 
 
@@ -100,6 +110,30 @@ export class LoginComponent implements OnInit {
     this.loginShowing = !this.loginShowing;
   }
 
-  signIn() { }
+  signIn() {
+
+
+    this.isLoading = true;
+    let orgName = this.signInForm.get("orgName").value;
+    let username = this.signInForm.get("username").value;
+    let password = this.signInForm.get("password").value;
+
+
+    this.hopitalService.addOrganization(orgName, username, password)
+      .subscribe(response => {
+        if (response.exceptionMessage == undefined) {
+          SucessHandler.successMessage("Votre demande a été envoyée, elle sera traitée par un administrateur")
+          this.isLoading = false
+        }
+        else {
+          ErrorHandler.errorMessage(response.exceptionMessage)
+          this.isLoading = false
+        }
+      })
+  }
+
+  urgences() {
+    this.router.navigate(['urgences'])
+  }
 
 }

@@ -1,0 +1,19 @@
+<app-menu></app-menu>
+<div class="container">
+
+    <h3 *ngIf="invalidUsers.length > 0">Comptes à valider: {{invalidUsers.length}}</h3>
+    <div class="invalidUserLine" *ngFor="let user of invalidUsers">
+        <div class="username">{{user.username}}</div>
+        <button class="valider" (click)="valider(user.id)" mat-button>Valider</button>
+        <!-- <button class="rejetter" mat-button>Rejetter</button>-->
+    </div>
+
+</div>
+<div class="noData" *ngIf="invalidUsers.length == 0">
+    <h1 class="hint">
+        Toutes les demandes ont été traitées
+    </h1>
+
+    <img src="https://i.postimg.cc/9QC0rc8Q/noData.png" alt="">
+
+</div>

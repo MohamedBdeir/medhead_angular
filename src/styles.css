@@ -32,6 +32,33 @@ body {
 
 }
 
+.warn {
+    color: rgb(241, 113, 113);
+    border: 1px solid rgb(241, 113, 113) !important;
+
+}
+
+.warn:hover {
+    background-color: rgb(241, 113, 113);
+    ;
+    color: white;
+}
+
+
+button:disabled {
+    background-color: lightgray;
+    color: gray;
+    cursor: not-allowed;
+
+}
+
+
+button:disabled:hover {
+    background-color: lightgray;
+    color: gray;
+    cursor: not-allowed;
+
+}
 
 .primary:hover {
     background-color: #008080;
@@ -40,4 +67,16 @@ body {
 
 .icon {
     margin-right: 0.5em;
+}
+
+.loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hint {
+    color: #d3d3d3;
 }

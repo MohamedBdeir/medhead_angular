@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
+    MatBadgeModule,
     RouterModule.forChild(routes)
 
   ]

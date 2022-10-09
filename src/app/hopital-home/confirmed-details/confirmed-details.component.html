@@ -1,0 +1,11 @@
+<app-hopital-menu></app-hopital-menu>
+<div class="container" *ngIf="hopital">
+
+
+    <div class="addresse">
+        {{hopital.addresse.display_name}}
+    </div>
+    <iframe class="carte" [src]="mapLink"></iframe>
+
+
+</div>

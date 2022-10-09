@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="menuItem">
+    <div class="menuItem" (click)="navigateToDashboard()">
         <fa-icon [icon]="faHome" class="icon"></fa-icon>
         Accueil
     </div>
@@ -12,6 +12,10 @@
 
     <div class="menuItem">
         <fa-icon [icon]="faUser" class="icon"></fa-icon>Comptes Utilisateurs
+    </div>
+
+    <div class="menuItem" (click)="logout()">
+        <fa-icon [icon]="faSignOut" class="icon"></fa-icon>Se déconnecter
     </div>
 
 </div>
